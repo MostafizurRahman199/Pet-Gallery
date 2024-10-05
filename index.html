@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<style>
+    .font_1{
+        font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+</style>
+</head>
+<body class="font_1">
+    
+<nav class="flex justify-between items-center w-11/12 mx-auto py-8">
+   
+
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+         
+          <div class="flex justify-center items-center gap-2" >
+            <img src="./logo.webp" alt="">
+            <h1 class="text-2xl font-bold">Peddy</h1>
+        </div>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <div class="flex items-center justify-center gap-2">
+                <a class="btn bg-transparent border-none shadow-none font-normal text-[#131313] " href="">Home</a>
+                <a class="btn bg-transparent border-none shadow-none font-normal text-[#131313] " href="">Shop</a>
+                <a class="btn bg-transparent border-none shadow-none font-normal text-[#131313] " href="">Contact</a>
+            </div>
+          </ul>
+        </div>
+        <div class="navbar-end">
+            <button class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+                      
+                 
+                </div>
+              </button>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16" />
+                  </svg>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                  <li><a>Home</a></li>
+                  <li>
+                    <a>Shop</a>
+                    
+                  </li>
+                  <li><a>Contact</a></li>
+                </ul>
+              </div>
+        </div>
+      </div>
+</nav>
+
+    <script src="./script.js"></script>
+</body>
+</html>
