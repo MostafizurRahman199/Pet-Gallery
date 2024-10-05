@@ -80,6 +80,421 @@
         </div>
       </div>
 </nav>
+<!-- banner -->
+<section  class="flex justify-between items-center w-11/12 mx-auto pb-8">
+    <div class="flex flex-col justify-center items-center mx-auto gap-4">
+        <h4 class="text-gray-500 font-bold">Bringing Families Together ❤️‍🔥</h4>
+        <h1 class="text-xl lg:text-5xl font-bold text-center text-[#131313]">Your Path to Adoption <br> Starts Here</h1>
+        <p class="w-4/6 text-center text-gray-700">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        <button class="btn bg-[#0E7A81] hover:bg-[#0E7A60] text-white">View More</button>
+        <div>
+            <img class="w-11/12" src="./pet.webp" alt="">
+        </div>
+    </div>
+</section>
+
+<main>
+    <!-- content -->
+    <section class="flex flex-col  w-11/12 mx-auto pb-8 ">
+        <div class="flex flex-col justify-center items-center mx-auto gap-4"> 
+            <h1  class="text-xl lg:text-3xl font-bold text-center text-[#131313]">Adopt  Your  Best Friend</h1>
+            <p class="w-4/6 text-center text-gray-700">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+        </div>
+<!-- category btn -->
+        <div id="category" class="flex flex-wrap items-center justify-between mt-8 gap-2 ">
+            
+            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
+                <div>
+                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
+                </div>
+                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
+            </div>
+            
+            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
+                <div>
+                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
+                </div>
+                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
+            </div>
+            
+            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
+                <div>
+                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
+                </div>
+                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
+            </div>
+            
+            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
+                <div>
+                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
+                </div>
+                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
+            </div>
+            
+           
+            
+            
+        </div>
+<!-- best for you -->
+        <div class="flex justify-between items-center w-full mx-auto gap-4 mt-8">
+            <div>
+                <h1 class="text-xl font-bold">Best Deal For you</h1>
+            </div>
+            <div>
+                <button class="btn bg-[#0E7A81] hover:bg-[#0E7A60] text-white">Sort by Price</button>
+            </div>
+        </div>
+
+        <!-- display -->
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-4 mt-8 space-y-4">
+
+             
+             <!-- display main -->
+
+             <div class="rounded-lg justify-center lg:col-span-3 p-2 flex gap-4 flex-wrap lg:flex-nowrap" id="display_section">
+
+                <!-- spinner -->
+                 <div class="flex justify-center items-center w-full hidden" id="spinner">
+                    <span class="loading loading-bars loading-lg"></span>
+                   </div>
+
+                   <!-- modal -->
+
+                   <!-- Open the modal using ID.showModal() method -->
+                <button class="btn hidden" onclick="my_modal_1.showModal()">open modal</button>
+                <dialog id="my_modal_1" class="modal">
+                <div class="modal-box">
+                    <h3 class="text-lg font-bold">Hello!</h3>
+                    <p class="py-4">Press ESC key or click the button below to close</p>
+                    <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                    </div>
+                </div>
+                </dialog>
+
+                <!-- card -->
+                <div class="card bg-base-100 w-96 shadow-xl border-2"> 
+                    <figure class="px-4 pt-4">
+                      <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes"
+                        class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-start ">
+                      <h2 class=" card-title text-left">Mister Tartosh</h2>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                              </svg>
+                              
+                          </div>
+                          <p>Breed: Golder retriever</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                              </svg>
+                              
+                              
+                          </div>
+                          <p>Birth : 2024</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                           <img class="w-5 h-5" src="./gender.png" alt="">
+                              
+                          </div>
+                          <p>Gender:Female</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                              
+                              
+                              
+                          </div>
+                          <p>Price:</p>
+                       </div>
+                       
+                       <div class="flex w-full flex-col m-0 p-0">
+                      
+                        <div class="divider m-0 p-0"></div>
+                       
+                      </div>
+
+                      <div class="flex justify-between items-center w-full">
+                        <div class=" btn  bg-transparent shadow-none border-1" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
+                              </svg>
+                              
+                        </div>
+                        <div>
+                            <button class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Adopt</button>
+                        </div>
+                       <div>
+                        <button class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Details</button>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="card bg-base-100 w-96 shadow-xl border-2"> 
+                    <figure class="px-4 pt-4">
+                      <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes"
+                        class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-start ">
+                      <h2 class=" card-title text-left">Mister Tartosh</h2>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                              </svg>
+                              
+                          </div>
+                          <p>Breed: Golder retriever</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                              </svg>
+                              
+                              
+                          </div>
+                          <p>Birth : 2024</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                           <img class="w-5 h-5" src="./gender.png" alt="">
+                              
+                          </div>
+                          <p>Gender:Female</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                              
+                              
+                              
+                          </div>
+                          <p>Price:</p>
+                       </div>
+                       
+                       <div class="flex w-full flex-col m-0 p-0">
+                      
+                        <div class="divider m-0 p-0"></div>
+                       
+                      </div>
+
+                      <div class="flex justify-between items-center w-full">
+                        <div class=" btn  bg-transparent shadow-none border-1" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
+                              </svg>
+                              
+                        </div>
+                        <div>
+                            <button class="btn bg-transparent shadow-none border-1">Adopt</button>
+                        </div>
+                       <div>
+                        <button class="btn bg-transparent shadow-none border-1">Details</button>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="card bg-base-100 w-96 shadow-xl border-2"> 
+                    <figure class="px-4 pt-4">
+                      <img
+                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                        alt="Shoes"
+                        class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-start ">
+                      <h2 class=" card-title text-left">Mister Tartosh</h2>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                              </svg>
+                              
+                          </div>
+                          <p>Breed: Golder retriever</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                              </svg>
+                              
+                              
+                          </div>
+                          <p>Birth : 2024</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                           <img class="w-5 h-5" src="./gender.png" alt="">
+                              
+                          </div>
+                          <p>Gender:Female</p>
+                       </div>
+                       <div class="flex gap-1 items-center">
+                          <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                              </svg>
+                              
+                              
+                              
+                          </div>
+                          <p>Price:</p>
+                       </div>
+                       
+                       <div class="flex w-full flex-col m-0 p-0">
+                      
+                        <div class="divider m-0 p-0"></div>
+                       
+                      </div>
+
+                      <div class="flex justify-between items-center w-full">
+                        <div class=" btn  bg-transparent shadow-none border-1" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
+                              </svg>
+                              
+                        </div>
+                        <div>
+                            <button class="btn bg-transparent shadow-none border-1">Adopt</button>
+                        </div>
+                       <div>
+                        <button class="btn bg-transparent shadow-none border-1">Details</button>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                
+             </div>
+
+
+             <!-- liked photo -->
+              <div class="border-2 rounded-lg col-span-1 p-2">
+                 <div class="grid grid-cols-2 gap-2" id="like_section">
+
+                    <div class=" flex justify-center items-center">
+                        <img src="https://i.ibb.co.com/c8Yp1y7/dog.png" alt="">
+                    </div>
+
+                    <div class="border-2 flex justify-center items-center">
+                        <img src="https://i.ibb.co.com/c8Yp1y7/dog.png" alt="">
+                    </div>
+                    <div class="border-2 flex justify-center items-center">
+                        <img src="https://i.ibb.co.com/c8Yp1y7/dog.png" alt="">
+                    </div>
+                    <div class="border-2 flex justify-center items-center">
+                        <img src="https://i.ibb.co.com/c8Yp1y7/dog.png" alt="">
+                    </div>
+
+                    
+
+                 </div>
+              </div>
+         </div>
+    </section>
+</main>
+
+<!-- footer -->
+<div>
+    <footer class="mt-8 pt-16 footer bg-base-200 text-base-content p-10 items-center justify-around text-white bg-black">
+        <nav>
+         
+            <div class="flex justify-center items-center gap-2" >
+                <img src="./logo.webp" alt="">
+                <h1 class="text-2xl font-bold">Peddy</h1>
+            </div>
+          <p class="link link-hover">Location: av. Washington 165, NY CA </p>
+          <p class="link link-hover">54003
+        </p>
+          <p class="link link-hover">Phone: +31 85 964 47 25
+        </p>
+          <p class="link link-hover">Openings hours: 9.00 AM - 5.00 PM</p>
+
+          <div class="flex justify-between items-center gap-4">
+            <a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="fill-current">
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                </svg>
+              </a>
+              <a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="fill-current">
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                </svg>
+              </a>
+              <a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  class="fill-current">
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                </svg>
+              </a>
+              <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-instagram size-6" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                  </svg>
+              </a>
+          </div>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Useful Links</h6>
+          <a class="link link-hover">Home</a>
+          <a class="link link-hover">About</a>
+          <a class="link link-hover">Animals</a>
+          <a class="link link-hover">Foundation</a>
+          <a class="link link-hover">Contact</a>
+          
+        </nav>
+      
+        <form>
+          <h6 class="footer-title">Drop a Message</h6>
+          <fieldset class="form-control ">
+           
+            <div class="flex flex-col gap-2">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                class="input input-bordered join-item rounded-xl" />
+              <button class="btn bg-[#0E7A81] hover:bg-[#0E7A60] text-white border-none text-xl">Subscribe</button>
+            </div>
+          </fieldset>
+        </form>
+      </footer>
+</div>
 
     <script src="./script.js"></script>
 </body>
