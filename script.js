@@ -7,6 +7,7 @@ const createDiv = ()=>{
     return document.createElement('div');
 }
 
+const like_section = getById("like_section");
 const display_pets_section = getById("display_pets_section");
 const spinner = getById("spinner");
 const category_btn_section = getById("category_btn_section");
@@ -19,7 +20,7 @@ const loadAllPets = async () => {
       
         data = data.pets;
         console.log(data);
-        displayAllPets(data);
+       
         return data;
 }
 
@@ -63,8 +64,16 @@ const loadCategoryWise = async(category, id)=>{
     data = await data.json();
     data = data.data;
     console.log(data);
+
     if(flag){
-        displayAllPets(data);
+
+        if(data.length === 0){
+
+            displayAllPets(data, true);
+        }else{
+            displayAllPets(data, false);
+
+        }
     }
 
     
@@ -120,12 +129,26 @@ const spinnerHandler = async ()=>{
 }
  */
 
+const liked = async (id)=>{
+    const data = await loadAllPets();
+    const pet = data.find(pet => pet.petId === id);
+    console.log(pet);
+    if(pet){
+        const div = createDiv();
+        div.innerHTML = `  <div class=" flex justify-center items-center">
+                        <img class="rounded-lg" src="${pet.image}" alt="">
+                    </div>`;
+
+
+        like_section.appendChild(div);
+        }
+}
+
+
 const displayCategoryBtn = async()=>{
 
-    const data = await loadCategoryBtn();
-   
-
-    
+ const data = await loadCategoryBtn();
+      
     data.map((item)=>{
        const div = createDiv();
        div.innerHTML = `<div onclick="loadCategoryWise('${item.category}', '${item.id}')" class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#9fd3d61a] transition-all ease-linear duration-300" id='${item.category}'>
@@ -139,12 +162,16 @@ const displayCategoryBtn = async()=>{
    
    }
 
-const displayAllPets = (pets)=>{
+const displayAllPets = async(pets="", operation=false)=>{
 
+    if(pets=="" && operation == false){
+        
+        pets = await loadAllPets();
+    }
     display_pets_section.innerHTML = "";
     console.log(pets);
 
-    if(pets.length === 0){
+    if(pets.length === 0 && !operation === false){
         const div = createDiv();
         div.innerHTML = `<div class="flex flex-col justify-center items-center gap-4">
             <div>
@@ -216,7 +243,8 @@ const displayAllPets = (pets)=>{
                                   </div>
     
                                   <div class="flex justify-between items-center w-full">
-                                  <div class=" btn  bg-transparent shadow-none border-1" >
+
+                                  <div onclick='liked(${pet.petId})' class=" btn  bg-transparent shadow-none border-1" >
                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.25c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 0 1 2.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 0 0 .322-1.672V2.75a.75.75 0 0 1 .75-.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282m0 0h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 0 1-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 0 0-1.423-.23H5.904m10.598-9.75H14.25M5.904 18.5c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 0 1-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 9.953 4.167 9.5 5 9.5h1.053c.472 0 .745.556.5.96a8.958 8.958 0 0 0-1.302 4.665c0 1.194.232 2.333.654 3.375Z" />
                                   </svg>
@@ -247,6 +275,7 @@ const main = async ()=>{
     
     await loadAllPets();
     await displayCategoryBtn();
+    await  displayAllPets();
     // await spinnerHandler();
     
     
