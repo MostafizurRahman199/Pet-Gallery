@@ -11,6 +11,8 @@ const like_section = getById("like_section");
 const display_pets_section = getById("display_pets_section");
 const spinner = getById("spinner");
 const category_btn_section = getById("category_btn_section");
+const my_modal_1 = getById("my_modal_1");
+// console.log(my_modal_1);
 
 
 const loadAllPets = async () => {
@@ -130,6 +132,7 @@ const spinnerHandler = async ()=>{
  */
 
 const liked = async (id)=>{
+
     const data = await loadAllPets();
     const pet = data.find(pet => pet.petId === id);
     console.log(pet);
@@ -141,9 +144,98 @@ const liked = async (id)=>{
 
 
         like_section.appendChild(div);
-        }
+    }
 }
 
+
+const showDetails = async(id) =>{
+    const data = await loadAllPets();
+    const pet = data.find(pet => pet.petId === id);
+    
+    my_modal_1.innerHTML = "";
+    const div = createDiv();
+
+    div.innerHTML = `
+ <div class="relative bg-white rounded-2xl flex flex-col overflow-y-auto  mx-auto p-4 w-5/6 max-h-[400px] sm:max-h-[500px] md:w-[500px] lg:w-[800px] md:h-[500px] lg:h-[600px]">
+
+    
+    <!-- image thumbnail -->
+    <figure class="p-4 flex justify-center ">
+        <img src="${pet?.image}" alt="Shoes" class="rounded-xl object-cover w-full sm:w-4/6 md:w-4/6 lg:w-3/5" />
+    </figure>
+
+    <div class="card-body items-start p-4">
+        <h2 class="card-title text-left text-lg md:text-xl lg:text-2xl">${pet?.pet_name || 'Not available'}</h2>
+
+        <div class="flex flex-wrap gap-8">
+            <div class="flex gap-1 items-center">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                    </svg>
+                </div>
+                <p>Breed: ${pet?.breed || "Not available"}</p>
+            </div>
+
+            <div class="flex gap-1 items-center">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                    </svg>
+                </div>
+                <p>Birth: ${pet?.date_of_birth || "No available"}</p>
+            </div>
+
+            <div class="flex gap-1 items-center">
+                <div>
+                    <img class="w-5 h-5" src="./gender.png" alt="">
+                </div>
+                <p>Gender: ${pet?.gender || "Not available"}</p>
+            </div>
+
+            <div class="flex gap-1 items-center">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </div>
+                <p>Price: ${pet.price || "Not available"}</p>
+            </div>
+        </div>
+
+        <div class="flex w-full flex-col m-0 p-0">
+            <div class="divider m-0 p-0"></div>
+        </div>
+
+        <div class="flex justify-start items-center">
+            <p class="text-start text-gray-500">${pet.pet_details}</p>
+        </div>
+
+        <div class="flex justify-between items-center w-full">
+        </div>
+    </div>
+
+  <div class="modal-action p-0 m-0 absolute top-[0px] right-[0px]">
+        <form method="dialog">
+            <button class="btn rounded-full m-2 py-1">❌</button>
+        </form>
+    </div>
+    <div class="modal-action p-0 m-0 ">
+        <form method="dialog">
+            <button class="btn rounded-lg text-[#0E7A81] m-2">Close</button>
+        </form>
+    </div>
+</div>
+
+
+
+  
+    `;
+
+    my_modal_1.appendChild(div);
+    my_modal_1.showModal();
+
+}
 
 const displayCategoryBtn = async()=>{
 
@@ -254,7 +346,7 @@ const displayAllPets = async(pets="", operation=false)=>{
                             <button class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Adopt</button>
                             </div>
                            <div>
-                           <button class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Details</button>
+                           <button type="button"  onclick='showDetails(${pet.petId})' class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Details</button>
                            </div>
                            </div>
                            </div>
