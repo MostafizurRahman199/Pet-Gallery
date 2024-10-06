@@ -332,7 +332,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
 
             </div>
             <div class="flex flex-col justify-center items-center">
-                <h2 class="text-xl font-bold text-center">No Information Available</h2>
+                <h2 class="text-xl font-bold text-center font_2">No Information Available</h2>
                 <p class="text-gray-500 text-center w-5/6 items-center">"No Information Available" typically indicates that the requested data or information could not be retrieved or is not currently accessible</p>
             </div>
         </div>`
@@ -356,7 +356,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
                             class="rounded-xl" />
                             </figure>
                         <div class="card-body items-start p-4">
-                          <h2 class=" card-title text-left">${pet?.pet_name || 'Not available'}</h2>
+                          <h2 class=" card-title text-left font_2 font-bold">${pet?.pet_name || 'Not available'}</h2>
                            <div class="flex gap-1 items-center">
                               <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -364,7 +364,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
                                   </svg>
                                   
                               </div>
-                              <p>Breed: ${pet?.breed || "Not available"}</p>
+                              <p class="text-[#131313B3]">Breed: ${pet?.breed || "Not available"}</p>
                            </div>
                            <div class="flex gap-1 items-center">
                               <div>
@@ -374,14 +374,14 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
                                   
                                   
                               </div>
-                              <p>Birth: ${pet?.date_of_birth || "Not available"}</p>
+                              <p class="text-[#131313B3]">Birth: ${pet?.date_of_birth || "Not available"}</p>
                            </div>
                            <div class="flex gap-1 items-center">
                               <div>
                               <img class="w-5 h-5" src="./gender.png" alt="">
                               
                               </div>
-                              <p>Gender: ${pet?.gender || "Not available"}</p>
+                              <p class="text-[#131313B3]">Gender: ${pet?.gender || "Not available"}</p>
                               </div>
                               <div class="flex gap-1 items-center">
                               <div>
@@ -392,7 +392,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
                                   
                                   
                                   </div>
-                                  <p>Price: ${pet.price || "Not available"}</p>
+                                  <p class="text-[#131313B3]">Price: ${pet.price || "Not available"}</p>
                                   </div>
                                   
                                   <div class="flex w-full flex-col m-0 p-0">
