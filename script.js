@@ -392,7 +392,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
                                   
                                   
                                   </div>
-                                  <p class="text-[#131313B3]">Price: ${pet.price || "Not available"}</p>
+                                  <p class="text-[#131313B3]">Price: ${pet.price+'$'  || "Not available"}</p>
                                   </div>
                                   
                                   <div class="flex w-full flex-col m-0 p-0">
