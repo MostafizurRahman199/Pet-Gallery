@@ -13,7 +13,30 @@ const spinner = getById("spinner");
 const category_btn_section = getById("category_btn_section");
 const my_modal_1 = getById("my_modal_1");
 const my_modal_2 = getById("my_modal_2");
-// console.log(my_modal_1);
+const sort_btn = getById("sort_btn");
+
+
+
+const sortByPrice = async()=>{
+   
+    spinnerHandler();
+    setTimeout(()=>{
+    displayAllPets(undefined, undefined, true);
+
+   },2000);
+    let extra = category.toLowerCase();
+    extra = "category/" + extra;
+   
+
+   let data = await fetch(`https://openapi.programming-hero.com/api/peddy/pets/${extra}`);
+   data = await data.json();
+
+   if(category)
+   console.log(data);
+
+   
+
+}
 
 
 const loadAllPets = async () => {
@@ -61,23 +84,21 @@ const btnDesign = async(category, id)=>{
 
 const loadCategoryWise = async(category, id)=>{
    
+  
     await btnDesign(category, id);
     const flag = await spinnerHandler();
+   
     let data = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
     data = await data.json();
     data = data.data;
     console.log(data);
 
-    if(flag){
-
-        if(data.length === 0){
-
-            displayAllPets(data, true);
-        }else{
-            displayAllPets(data, false);
-
-        }
-    }
+ 
+    setTimeout(()=>{
+        displayAllPets(data);
+      
+       }, 2000);
+   
 
     
 
@@ -99,12 +120,17 @@ const loadCategoryBtn = async ()=>{
 
 const spinnerHandler = async ()=>{
 
-     spinner.classList = "loading loading-bars loading-lg";
+    //  spinner.classList = "loading loading-bars loading-lg";
+
+    display_pets_section.innerHTML = `<div id="category_btn_section" class="flex flex-wrap items-center justify-between mt-8 gap-2 h-[200px] ">
+    <span id="spinner" class="loading loading-bars loading-lg"></span>
+   </div>`;
 
      setTimeout(()=>{
-        spinner.classList = "loading loading-bars loading-lg hidden";
-    }, 2000);
-    return true;
+         spinner.classList = "loading loading-bars loading-lg hidden";
+        
+        }, 2000);
+        return true;
 
 }
 
@@ -132,21 +158,24 @@ const spinnerHandler = async ()=>{
 }
  */
 
-const liked = async (id)=>{
 
+
+
+const liked = async (id) => {
     const data = await loadAllPets();
     const pet = data.find(pet => pet.petId === id);
     console.log(pet);
-    if(pet){
-        const div = createDiv();
-        div.innerHTML = `  <div class=" flex justify-center items-center">
-                        <img class="rounded-lg" src="${pet.image}" alt="">
-                    </div>`;
-
-
-        like_section.appendChild(div);
+    if (pet) {
+        const div = document.createElement('div'); 
+        div.classList.add('flex', 'justify-center', 'items-center', 'p-2'); 
+        div.innerHTML = `
+            <div class="flex justify-center items-center">
+                <img class="rounded-lg" src="${pet.image}" alt="">
+            </div>`;
+        document.getElementById('like_section').appendChild(div); 
     }
-}
+};
+
 
 
 const showDetails = async(id) =>{
@@ -312,16 +341,17 @@ const displayCategoryBtn = async()=>{
    
    }
 
-const displayAllPets = async(pets="", operation=false)=>{
+const displayAllPets = async(pets="all", operation=false, sort=false)=>{
 
-    if(pets=="" && operation == false){
+    console.log("Pets : ", pets,"Operation : " ,operation, "Sort : ", sort);
+    if(pets=="all"){
         
         pets = await loadAllPets();
     }
     display_pets_section.innerHTML = "";
     console.log(pets);
 
-    if(pets.length === 0 && !operation === false){
+    if(pets.length === 0){
         const div = createDiv();
         div.innerHTML = `<div class="flex flex-col justify-center items-center gap-4">
             <div>
@@ -336,6 +366,12 @@ const displayAllPets = async(pets="", operation=false)=>{
 
         display_pets_section.appendChild(div);
     }else{
+
+     if(sort){
+        pets.sort((a, b) => b.price - a.price);
+
+     }
+
         pets.map((pet)=>{
             const div = createDiv();
             div.innerHTML = `

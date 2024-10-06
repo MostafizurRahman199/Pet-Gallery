@@ -104,34 +104,7 @@
 <!-- category btn -->
         <div id="category_btn_section" class="flex flex-wrap items-center justify-between mt-8 gap-2 ">
             
-            <!-- <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
-                <div>
-                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
-                </div>
-                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
-            </div>
-            
-            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
-                <div>
-                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
-                </div>
-                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
-            </div>
-            
-            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
-                <div>
-                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
-                </div>
-                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
-            </div>
-            
-            <div class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A] transition-all ease-linear duration-300">
-                <div>
-                    <img class="w-4/6 md:w-full" src="https://i.ibb.co.com/N7dM2K1/cat.png" alt="">
-                </div>
-                <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
-            </div> -->
-            
+           
         </div>
            
             
@@ -142,10 +115,10 @@
                 <h1 class="text-xl font-bold">Best Deal For you</h1>
             </div>
            
-                <span id="spinner" class="loading loading-bars loading-lg hidden"></span>
+                <!-- <span id="spinner" class="loading loading-bars loading-lg hidden"></span> -->
            
             <div>
-                <button class="btn bg-[#0E7A81] hover:bg-[#0E7A60] text-white">Sort by Price</button>
+                <button id="sort_btn" onclick="sortByPrice()" class="btn bg-[#0E7A81] hover:bg-[#0E7A60] text-white">Sort by Price</button>
             </div>
         </div>
 
@@ -589,12 +562,14 @@
                   </div>  -->
                   <div class="rounded-lg justify-center lg:col-span-3 p-2 flex gap-8 flex-wrap lg:flex-wrap" id="display_pets_section">
 
+                  
+
                 </div>
 
 
              <!-- liked photo -->
-              <div class="border-2 rounded-lg col-span-1 p-2">
-                 <div class="grid grid-cols-2 gap-2" id="like_section">
+              <div class="border-2 rounded-lg col-span-1 p-2 h-5/6 overflow-y-auto ">
+                 <div class="grid grid-cols-2 gap-2 " id="like_section" >
 
                     <!-- <div class=" flex justify-center items-center">
                         <img src="https://i.ibb.co.com/c8Yp1y7/dog.png" alt="">
@@ -604,7 +579,15 @@
                     
 
                  </div>
-              </div>
+
+            </div>
+
+          
+            
+
+                 
+                
+                 
          </div>
     </section>
 
