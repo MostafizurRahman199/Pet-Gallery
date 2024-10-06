@@ -348,7 +348,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
         pets.map((pet)=>{
             const div = createDiv();
             div.innerHTML = `
-            <div  class="card bg-base-100 w-5/6 sm:w-80 shadow-xl border-2"> 
+            <div  class="card bg-base-100 w-5/6 sm:w-80 shadow-xl border-2 mx-auto"> 
             <figure class="p-4">
             <img
             src="${pet?.image}"
