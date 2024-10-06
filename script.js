@@ -12,6 +12,7 @@ const display_pets_section = getById("display_pets_section");
 const spinner = getById("spinner");
 const category_btn_section = getById("category_btn_section");
 const my_modal_1 = getById("my_modal_1");
+const my_modal_2 = getById("my_modal_2");
 // console.log(my_modal_1);
 
 
@@ -160,9 +161,9 @@ const showDetails = async(id) =>{
 
     
     <!-- image thumbnail -->
-    <figure class="p-4 flex justify-center ">
-        <img src="${pet?.image}" alt="Shoes" class="rounded-xl object-cover w-full sm:w-4/6 md:w-4/6 lg:w-3/5" />
-    </figure>
+    <div class="p-4 flex justify-center w-full">
+        <img src="${pet?.image}" alt="pet" class="rounded-xl  sm:w-4/6 md:w-4/6 lg:w-3/5 " />
+    </div>
 
     <div class="card-body items-start p-4">
         <h2 class="card-title text-left text-lg md:text-xl lg:text-2xl">${pet?.pet_name || 'Not available'}</h2>
@@ -237,6 +238,63 @@ const showDetails = async(id) =>{
 
 }
 
+const showDetails2 = async (id) => {
+    let counter = 3;
+
+    let btn = getById(id+"_adoptBtn");
+    btn.innerText = "adopted";
+    btn.disabled = true;
+
+    my_modal_2.innerHTML = "";
+    const div = createDiv();
+
+    // Show the modal immediately with the initial counter value
+    div.innerHTML = `
+        <div class="bg-white rounded-2xl flex flex-col mx-auto w-5/6 md:w-fit h-auto shadow-lg justify-center items-center p-8">
+            <div>
+                <img class="w-24 h-24" src="./handshake.png" alt="">
+            </div>
+            <h2 class="text-xl md:text-2xl font-bold">Congrats</h2>
+            <p class="text-bold">Adoption Process is Start For your Pet.</p>
+            <span class="countdown font-mono text-7xl font-bold">
+                <span style="--value:${counter};"></span>
+            </span>
+        </div>
+    `;
+
+    my_modal_2.appendChild(div);
+    my_modal_2.showModal(); // Show modal immediately
+
+    // Start the interval to update the counter
+    let setIntervalId = setInterval(() => {
+        counter -= 1;
+        
+        // Update the counter in the modal
+        div.innerHTML = `
+            <div class="bg-white rounded-2xl flex flex-col mx-auto w-5/6 md:w-fit h-auto shadow-lg justify-center items-center p-8">
+                <div>
+                    <img class="w-24 h-24" src="./handshake.png" alt="">
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold">Congrats</h2>
+                <p class="text-bold">Adoption Process is Start For your Pet.</p>
+                <span class="countdown font-mono text-7xl font-bold">
+                    <span style="--value:${counter};"></span>
+                </span>
+            </div>
+        `;
+
+        // Clear interval if counter reaches 0
+        if (counter == 0) {
+            clearInterval(setIntervalId);
+            my_modal_2.close();
+        }
+    }, 1000);
+}
+
+
+
+
+
 const displayCategoryBtn = async()=>{
 
  const data = await loadCategoryBtn();
@@ -281,7 +339,7 @@ const displayAllPets = async(pets="", operation=false)=>{
         pets.map((pet)=>{
             const div = createDiv();
             div.innerHTML = `
-            <div class="card bg-base-100 w-80 shadow-xl border-2"> 
+            <div  class="card bg-base-100 w-80 shadow-xl border-2"> 
             <figure class="p-4">
             <img
             src="${pet?.image}"
@@ -343,10 +401,10 @@ const displayAllPets = async(pets="", operation=false)=>{
                                   
                             </div>
                             <div>
-                            <button class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Adopt</button>
+                            <button type="button"  id='${pet.petId}_adoptBtn' onclick='showDetails2(${pet.petId})' class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Adopt</button>
                             </div>
                            <div>
-                           <button type="button"  onclick='showDetails(${pet.petId})' class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Details</button>
+                           <button type="button"   onclick='showDetails(${pet.petId})' class="btn bg-transparent shadow-none border-1  text-[#0E7A81]">Details</button>
                            </div>
                            </div>
                            </div>
