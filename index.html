@@ -100,6 +100,7 @@
             <h1  class="text-xl lg:text-3xl font-bold text-center text-[#131313]">Adopt  Your  Best Friend</h1>
             <p class="w-4/6 text-center text-gray-700">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
+
 <!-- category btn -->
         <div id="category_btn_section" class="flex flex-wrap items-center justify-between mt-8 gap-2 ">
             
@@ -131,32 +132,32 @@
                 <h3 class="text-xl md:text-3xl font-bold">Dogs</h3>
             </div> -->
             
+        </div>
            
             
             
-        </div>
 <!-- best for you -->
         <div class="flex justify-between items-center w-full mx-auto gap-4 mt-8">
             <div>
                 <h1 class="text-xl font-bold">Best Deal For you</h1>
             </div>
+           
+                <span id="spinner" class="loading loading-bars loading-lg hidden"></span>
+           
             <div>
                 <button class="btn bg-[#0E7A81] hover:bg-[#0E7A60] text-white">Sort by Price</button>
             </div>
         </div>
 
         <!-- display -->
-         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-4 mt-8 space-y-4">
+    
 
              
              <!-- display main -->
 
-             <div class="rounded-lg justify-center lg:col-span-3 p-2 flex gap-8 flex-wrap lg:flex-wrap" id="display_pets_section">
-
+            
                 <!-- spinner -->
-                 <div class="flex justify-center items-center w-full hidden" id="spinner">
-                    <span class="loading loading-bars loading-lg"></span>
-                   </div>
+               
 
                    <!-- modal -->
 
@@ -175,6 +176,7 @@
                 </div>
                 </dialog>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-4 mt-8 space-y-4">
                 <!-- card -->
           <!-- <div class="card bg-base-100 w-72 shadow-xl border-2"> 
                     <figure class="p-4">
@@ -590,8 +592,9 @@
                       </div>
                     </div>
                   </div>  -->
-                
-             </div>
+                  <div class="rounded-lg justify-center lg:col-span-3 p-2 flex gap-8 flex-wrap lg:flex-wrap" id="display_pets_section">
+
+                </div>
 
 
              <!-- liked photo -->
@@ -618,6 +621,9 @@
               </div>
          </div>
     </section>
+
+
+    
 </main>
 
 <!-- footer -->
