@@ -1,4 +1,4 @@
-
+let flag = "all";
 const getById = (id)=>{
     return document.getElementById(id)
 }
@@ -19,22 +19,31 @@ const sort_btn = getById("sort_btn");
 
 const sortByPrice = async()=>{
    
-    spinnerHandler();
-    setTimeout(()=>{
-    displayAllPets(undefined, undefined, true);
-
-   },2000);
-    let extra = category.toLowerCase();
+    let extra = flag.toLowerCase();
     extra = "category/" + extra;
+    spinnerHandler();
    
 
-   let data = await fetch(`https://openapi.programming-hero.com/api/peddy/pets/${extra}`);
-   data = await data.json();
-
-   if(category)
-   console.log(data);
-
+   if(flag === 'all'){
    
+        setTimeout(()=>{
+            displayAllPets("all", undefined, true);
+        },2000);
+    
+
+   }else{
+
+        let data = await fetch(`https://openapi.programming-hero.com/api/peddy/${extra}`);
+        data = await data.json();
+        data = data.data;
+      
+
+        setTimeout(()=>{
+            displayAllPets(data, undefined, true);
+        },2000);
+        
+
+   }
 
 }
 
@@ -43,120 +52,84 @@ const loadAllPets = async () => {
   
         let data = await fetch(`https://openapi.programming-hero.com/api/peddy/pets`);
         data = await data.json();
-      
         data = data.pets;
-        console.log(data);
-       
+      
         return data;
+       
 }
 
 
-const btnDesign = async(category, id)=>{
+const btnDesign = async(category="", id="")=>{
 
     const data = await loadCategoryBtn();
-    // console.log(data);
-
+   
     const btn = getById(category);
-    // console.log(btn);
-
-    
-    // btn.classList.add('active');
-    
- 
     data.map((item)=>{
 
     
         if(item.id == id){
             const btn = getById(category);
-            btn.classList = 'flex justify-between gap-2 items-center border-2  w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer rounded-full bg-[#0E7A811A]';
-
-            // console.log(item.id, id)
+            btn.classList = 'flex justify-between gap-2 items-center border-2 border-[#0E7A81]   w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer rounded-full bg-[#0E7A811A]';
             
         }
         else if(item.id !== id){
-            console.log(item.id, id)
+           
             const btn = getById(item.category);
-            btn.classList = 'flex justify-between gap-2 rounded-lg items-center border-2  w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A]';
+            btn.classList = 'flex justify-between gap-2 rounded-lg items-center  border-2 border-transparent  hover:border-[#0E7A81]   w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#0E7A811A]';
         }
 
     })
 }
 
+
 const loadCategoryWise = async(category, id)=>{
    
-  
+    flag = category;
+
     await btnDesign(category, id);
-    const flag = await spinnerHandler();
+    await spinnerHandler();
    
     let data = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
     data = await data.json();
     data = data.data;
-    console.log(data);
+  
 
  
     setTimeout(()=>{
         displayAllPets(data);
+    }, 2000);
       
-       }, 2000);
    
 
-    
-
-    
-   
 }
 
 
 
-const categoryBtn = null;
+
 const loadCategoryBtn = async ()=>{
 
     let data = await fetch(`https://openapi.programming-hero.com/api/peddy/categories`);
     data = await data.json();
     data = data.categories;
-
     return data;
+
 }
 
 const spinnerHandler = async ()=>{
 
-    //  spinner.classList = "loading loading-bars loading-lg";
-
-    display_pets_section.innerHTML = `<div id="category_btn_section" class="flex flex-wrap items-center justify-between mt-8 gap-2 h-[200px] ">
+ display_pets_section.innerHTML = `<div id="category_btn_section" class="flex flex-wrap items-center justify-between mt-8 gap-2 h-[200px] ">
     <span id="spinner" class="loading loading-bars loading-lg"></span>
    </div>`;
 
      setTimeout(()=>{
          spinner.classList = "loading loading-bars loading-lg hidden";
-        
         }, 2000);
-        return true;
+        
+    return true;
 
 }
 
 
-/**
- * 
- * {
-    "petId": 1,
-    "breed": "Golden Retriever",
-    "category": "Dog",
-    "date_of_birth": "2023-01-15",
-    "price": 1200,
-    "image": "https://i.ibb.co.com/p0w744T/pet-1.jpg",
-    "gender": "Male",
-    "pet_details": "This friendly male Golden Retriever is energetic and loyal, making him a perfect companion for families. Born on January 15, 2023, he enjoys playing outdoors and is especially great with children. Fully vaccinated, he's ready to join your family and bring endless joy. Priced at $1200, he offers love, loyalty, and a lively spirit for those seeking a playful yet gentle dog.",
-    "vaccinated_status": "Fully",
-    "pet_name": "Sunny"
-}
-
-
-{
-    "id": 1,
-    "category": "Cat",
-    "category_icon": "https://i.ibb.co.com/N7dM2K1/cat.png"
-}
- */
 
 
 
@@ -164,7 +137,7 @@ const spinnerHandler = async ()=>{
 const liked = async (id) => {
     const data = await loadAllPets();
     const pet = data.find(pet => pet.petId === id);
-    console.log(pet);
+  
     if (pet) {
         const div = document.createElement('div'); 
         div.classList.add('flex', 'justify-center', 'items-center', 'p-2'); 
@@ -213,7 +186,7 @@ const showDetails = async(id) =>{
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
                     </svg>
                 </div>
-                <p>Birth: ${pet?.date_of_birth || "No available"}</p>
+                <p>Birth: ${pet?.date_of_birth || "Not available"}</p>
             </div>
 
             <div class="flex gap-1 items-center">
@@ -251,8 +224,8 @@ const showDetails = async(id) =>{
         </form>
     </div>
     <div class="modal-action p-0 m-0 ">
-        <form method="dialog">
-            <button class="btn rounded-lg text-[#0E7A81] m-2">Close</button>
+        <form method="dialog" class="w-full items-center flex justify-center">
+            <button class="btn rounded-lg text-[#0E7A81] bg-[#0E7A811A] border-1 border-[#0E7A81] m-2 w-full items-center">Close</button>
         </form>
     </div>
 </div>
@@ -330,7 +303,7 @@ const displayCategoryBtn = async()=>{
       
     data.map((item)=>{
        const div = createDiv();
-       div.innerHTML = `<div onclick="loadCategoryWise('${item.category}', '${item.id}')" class="flex justify-between gap-2 items-center border-2 rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#9fd3d61a] transition-all ease-linear duration-300" id='${item.category}'>
+       div.innerHTML = `<div onclick="loadCategoryWise('${item.category}', '${item.id}')" class="flex justify-between gap-2 items-center  border-[1px]  hover:border-[#0E7A81]  rounded-lg w-fit px-4 py-2 md:px-12 md:py-4 cursor-pointer hover:rounded-full hover:bg-[#9fd3d61a] transition-all ease-linear duration-300" id='${item.category}'>
                    <div>
                        <img class="w-4/6 md:w-full" src="${item.category_icon}" alt="">
                    </div>
@@ -343,24 +316,24 @@ const displayCategoryBtn = async()=>{
 
 const displayAllPets = async(pets="all", operation=false, sort=false)=>{
 
-    console.log("Pets : ", pets,"Operation : " ,operation, "Sort : ", sort);
+   
     if(pets=="all"){
         
         pets = await loadAllPets();
     }
     display_pets_section.innerHTML = "";
-    console.log(pets);
+  
 
     if(pets.length === 0){
         const div = createDiv();
-        div.innerHTML = `<div class="flex flex-col justify-center items-center gap-4">
+        div.innerHTML = `<div class="flex flex-col justify-center items-center gap-4 bg_color p-8 rounded-2xl">
             <div>
-                <img src="./error.webp" alt="">
+                <img class="w-5/6" src="./error.webp" alt="">
 
             </div>
-            <div>
+            <div class="flex flex-col justify-center items-center">
                 <h2 class="text-xl font-bold text-center">No Information Available</h2>
-                <p class="text-gray-500 text-center">"No Information Available" typically indicates that the requested data or information could not be retrieved or is not currently accessible</p>
+                <p class="text-gray-500 text-center w-5/6 items-center">"No Information Available" typically indicates that the requested data or information could not be retrieved or is not currently accessible</p>
             </div>
         </div>`
 
@@ -375,7 +348,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
         pets.map((pet)=>{
             const div = createDiv();
             div.innerHTML = `
-            <div  class="card bg-base-100 w-80 shadow-xl border-2"> 
+            <div  class="card bg-base-100 w-5/6 sm:w-80 shadow-xl border-2"> 
             <figure class="p-4">
             <img
             src="${pet?.image}"
@@ -401,7 +374,7 @@ const displayAllPets = async(pets="all", operation=false, sort=false)=>{
                                   
                                   
                               </div>
-                              <p>Birth: ${pet?.date_of_birth || "No available"}</p>
+                              <p>Birth: ${pet?.date_of_birth || "Not available"}</p>
                            </div>
                            <div class="flex gap-1 items-center">
                               <div>
@@ -461,8 +434,9 @@ const main = async ()=>{
     
     await loadAllPets();
     await displayCategoryBtn();
+  
+    await spinnerHandler();
     await  displayAllPets();
-    // await spinnerHandler();
     
     
 }
